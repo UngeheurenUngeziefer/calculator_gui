@@ -1,7 +1,28 @@
 from tkinter import *
+from PIL import ImageTk, Image
 
 root = Tk()
 root.title('Calculator')
+root.iconbitmap('pics\icon.ico')
+
+img_equal = ImageTk.PhotoImage(Image.open('pics\equal.png'))
+img_c = ImageTk.PhotoImage(Image.open('pics\c.png'))
+img_zero = ImageTk.PhotoImage(Image.open('pics\zero.png'))
+img_dvd = ImageTk.PhotoImage(Image.open('pics\dvd.png'))
+img_mltp = ImageTk.PhotoImage(Image.open('pics\mltp.png'))
+img_add = ImageTk.PhotoImage(Image.open(r'pics\add.png'))
+img_min = ImageTk.PhotoImage(Image.open('pics\min.png'))
+
+img_one = ImageTk.PhotoImage(Image.open('pics\one.png'))
+img_two = ImageTk.PhotoImage(Image.open(r'pics\two.png'))
+img_three = ImageTk.PhotoImage(Image.open(r'pics\three.png'))
+img_four = ImageTk.PhotoImage(Image.open(r'pics\four.png'))
+img_five = ImageTk.PhotoImage(Image.open(r'pics\five.png'))
+img_six = ImageTk.PhotoImage(Image.open('pics\six.png'))
+img_seven = ImageTk.PhotoImage(Image.open('pics\seven.png'))
+img_eight = ImageTk.PhotoImage(Image.open('pics\eight.png'))
+img_nine = ImageTk.PhotoImage(Image.open(r'pics\nine.png'))
+
 
 e = Entry(root, width=60, borderwidth=1)
 e.grid(row=0, column=0, columnspan=4, padx=10, pady=20)
@@ -60,25 +81,33 @@ def button_min():
     f_num = int(first_number)
     e.delete(0, END)
 
+def button_dot(num):
+    after_dot = e.get()
+    e.delete(0, END)
+    e.insert(0, str(current) + str(num))
 
-btn_1 = Button(root, text='1', padx=40, pady=20, command=lambda: button_click(1))
-btn_2 = Button(root, text='2', padx=40, pady=20, command=lambda: button_click(2))
-btn_3 = Button(root, text='3', padx=40, pady=20, command=lambda: button_click(3))
-btn_4 = Button(root, text='4', padx=40, pady=20, command=lambda: button_click(4))
-btn_5 = Button(root, text='5', padx=40, pady=20, command=lambda: button_click(5))
-btn_6 = Button(root, text='6', padx=40, pady=20, command=lambda: button_click(6))
-btn_7 = Button(root, text='7', padx=40, pady=20, command=lambda: button_click(7))
-btn_8 = Button(root, text='8', padx=40, pady=20, command=lambda: button_click(8))
-btn_9 = Button(root, text='9', padx=40, pady=20, command=lambda: button_click(9))
-btn_0 = Button(root, text='0', padx=135, pady=20, command=lambda: button_click(0))
 
-btn_C = Button(root, text='C', padx=86.4, pady=20, command=lambda: button_clear())
-btn_E = Button(root, text='=', padx=86, pady=20, command=lambda: button_equal())
-btn_dvd = Button(root, text='/', padx=40, pady=20, command=lambda: button_dvd())
-btn_mltp = Button(root, text='*', padx=40, pady=20, command=lambda: button_mltp())
-btn_add = Button(root, text='+', padx=40, pady=20, command=lambda: button_add())
-btn_min = Button(root, text='-', padx=40, pady=20, command=lambda: button_min())
+btn_1 = Button(root, image=img_one, bg='black', command=lambda: button_click(1))
+btn_2 = Button(root, image=img_two, bg='black', command=lambda: button_click(2))
+btn_3 = Button(root, image=img_three, bg='black', command=lambda: button_click(3))
+btn_4 = Button(root, image=img_four, bg='black', command=lambda: button_click(4))
+btn_5 = Button(root, image=img_five, bg='black', command=lambda: button_click(5))
+btn_6 = Button(root, image=img_six, bg='black', command=lambda: button_click(6))
+btn_7 = Button(root, image=img_seven, bg='black', command=lambda: button_click(7))
+btn_8 = Button(root, image=img_eight, bg='black', command=lambda: button_click(8))
+btn_9 = Button(root, image=img_nine, bg='black', command=lambda: button_click(9))
 
+btn_0 = Button(root, image=img_zero, bg='rosybrown', command=lambda: button_click(0))
+
+btn_C = Button(root, image=img_c, bg='rosybrown', command=lambda: button_clear())
+btn_E = Button(root, image=img_equal, bg='khaki', command=lambda: button_equal())
+
+btn_dvd = Button(root, image=img_dvd, bg='rosybrown', command=lambda: button_dvd())
+btn_mltp = Button(root, image=img_mltp, bg='rosybrown', command=lambda: button_mltp())
+btn_add = Button(root, image=img_add, bg='rosybrown', command=lambda: button_add())
+btn_min = Button(root, image=img_min, bg='rosybrown', command=lambda: button_min())
+
+btn_dot = Button(root, text='.', command=lambda: button_dot())
 
 btn_1.grid(row=4, column=0)
 btn_2.grid(row=4, column=1)
@@ -96,5 +125,6 @@ btn_dvd.grid(row=2, column=3)
 btn_mltp.grid(row=3, column=3)
 btn_add.grid(row=4, column=3)
 btn_min.grid(row=5, column=3)
+#btn_dot.grid(row=6, column=0)
 
 root.mainloop()
