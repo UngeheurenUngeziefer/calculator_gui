@@ -31,11 +31,13 @@ img_2root_x = ImageTk.PhotoImage(Image.open(r'pics\2root_x.png'))
 
 # поле ввода
 root.configure(background='black')
+
 e = Entry(root, width=13, bg='black', fg='white', justify='right', font="Arial 40 bold",
           borderwidth=0, highlightthickness=0)
 e.pack(pady=50)
 e.grid(row=0, column=0, columnspan=4, padx=10, pady=20)
 root.minsize(300, 400)
+
 
 root.grid_columnconfigure(0, weight=1)
 root.grid_columnconfigure(1, weight=1)
@@ -164,6 +166,53 @@ def sq_root():
         else:
             e.insert(0, result)
 
+def key(event=None):
+    button_click(event.char)
+    button_name = 'btn_' + str(event.char)
+    if button_name == 'btn_.':
+        button_name = 'btn_dot'
+    button_name = eval(button_name)
+    button_name.config(bg='white')
+    root.after(100, lambda: button_name.config(bg='black'))
+
+def backspace(event=None):
+    btn_C.config(bg='white')
+    root.after(100, lambda: btn_C.config(bg='salmon'))
+    button_clear()
+
+def equal(event=None):
+    btn_E.config(bg='white')
+    root.after(100, lambda: btn_E.config(bg='khaki'))
+    button_equal()
+
+def addition(event=None):
+    btn_add.config(bg='white')
+    root.after(100, lambda: btn_add.config(bg='gray'))
+    button_add()
+
+def minus(event=None):
+    btn_min.config(bg='white')
+    root.after(100, lambda: btn_min.config(bg='gray'))
+    button_min()
+
+def divide(event=None):
+    btn_dvd.config(bg='white')
+    root.after(100, lambda: btn_dvd.config(bg='gray'))
+    button_dvd()
+
+def multiple(event=None):
+    btn_mltp.config(bg='white')
+    root.after(100, lambda: btn_mltp.config(bg='gray'))
+    button_mltp()
+
+root.bind("<Key>", key)
+root.bind("<BackSpace>", backspace)
+root.bind("<+>", addition)
+root.bind("<minus>", minus)
+root.bind("</>", divide)
+root.bind("<*>", multiple)
+root.bind("<=>", equal)
+root.bind("<Return>", equal)
 
 # свойства кнопок
 btn_1 = Button(root, image=img_one, bg='black', command=lambda: button_click(1))
