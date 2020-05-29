@@ -60,13 +60,34 @@ def button_click(num):
 def button_clear():
     e.delete(0, END)
 
+def operation_buttons(func_button):
+    def wrapper():
+        first_number = e.get()
+        global f_num
+        func_button()
+        f_num = first_number
+        e.delete(0, END)
+    return wrapper
+
+@operation_buttons
 def button_add():
-    first_number = e.get()
-    global f_num
     global math
     math = 'addition'
-    f_num = first_number
-    e.delete(0, END)
+
+@operation_buttons
+def button_dvd():
+    global math
+    math = 'dividing'
+
+@operation_buttons
+def button_mltp():
+    global math
+    math = 'multiplication'
+
+@operation_buttons
+def button_min():
+    global math
+    math = 'substraction'
 
 def button_equal():
     second_number = e.get()
@@ -94,30 +115,6 @@ def button_equal():
             e.insert(0, float(f_num) * float(second_number))
         else:
             e.insert(0, int(f_num) * int(second_number))
-
-def button_dvd():
-    first_number = e.get()
-    global f_num
-    global math
-    math = 'dividing'
-    f_num = first_number
-    e.delete(0, END)
-
-def button_mltp():
-    first_number = e.get()
-    global f_num
-    global math
-    math = 'multiplication'
-    f_num = first_number
-    e.delete(0, END)
-
-def button_min():
-    first_number = e.get()
-    global f_num
-    global math
-    math = 'substraction'
-    f_num = first_number
-    e.delete(0, END)
 
 def plus_min():
     current = e.get()
@@ -168,12 +165,15 @@ def sq_root():
 
 def key(event=None):
     button_click(event.char)
-    button_name = 'btn_' + str(event.char)
-    if button_name == 'btn_.':
-        button_name = 'btn_dot'
-    button_name = eval(button_name)
-    button_name.config(bg='white')
-    root.after(100, lambda: button_name.config(bg='black'))
+    try:
+        button_name = 'btn_' + str(event.char)
+        if button_name == 'btn_.':
+            button_name = 'btn_dot'
+        button_name = eval(button_name)
+        button_name.config(bg='white')
+        root.after(100, lambda: button_name.config(bg='black'))
+    except NameError:
+        pass
 
 def backspace(event=None):
     btn_C.config(bg='white')
@@ -207,7 +207,7 @@ def multiple(event=None):
 
 root.bind("<Key>", key)
 root.bind("<BackSpace>", backspace)
-root.bind("<+>", addition)
+root.bind("<plus>", addition)
 root.bind("<minus>", minus)
 root.bind("</>", divide)
 root.bind("<*>", multiple)
