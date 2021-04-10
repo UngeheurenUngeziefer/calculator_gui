@@ -29,7 +29,7 @@ img_x_2 = ImageTk.PhotoImage(Image.open(r'pics\x_2.png'))
 img_x_3 = ImageTk.PhotoImage(Image.open(r'pics\x_3.png'))
 img_2root_x = ImageTk.PhotoImage(Image.open(r'pics\2root_x.png'))
 
-# поле ввода
+# enter field
 root.configure(background='black')
 
 e = Entry(root, width=13, bg='black', fg='white', justify='right', font="Arial 40 bold",
@@ -37,7 +37,6 @@ e = Entry(root, width=13, bg='black', fg='white', justify='right', font="Arial 4
 e.pack(pady=50)
 e.grid(row=0, column=0, columnspan=4, padx=10, pady=20)
 root.minsize(300, 400)
-
 
 root.grid_columnconfigure(0, weight=1)
 root.grid_columnconfigure(1, weight=1)
@@ -51,7 +50,7 @@ root.grid_rowconfigure(4, weight=1)
 root.grid_rowconfigure(5, weight=1)
 root.grid_rowconfigure(6, weight=1)
 
-# функции кнопок
+# buttons functions
 def button_click(num):
     current = e.get()
     e.delete(0, END)
@@ -214,7 +213,7 @@ root.bind("<*>", multiple)
 root.bind("<=>", equal)
 root.bind("<Return>", equal)
 
-# свойства кнопок
+# buttons
 btn_1 = Button(root, image=img_one, bg='black', command=lambda: button_click(1))
 btn_2 = Button(root, image=img_two, bg='black', command=lambda: button_click(2))
 btn_3 = Button(root, image=img_three, bg='black', command=lambda: button_click(3))
@@ -239,7 +238,7 @@ btn_x_2 = Button(root, image=img_x_2, bg='cornflowerblue', command=lambda: x_2()
 btn_x_3 = Button(root, image=img_x_3, bg='cornflowerblue', command=lambda: x_3())
 
 
-# положение в сетке
+# grid location
 btn_C.grid(row=1, column=0, columnspan=2, sticky="nsew")
 btn_E.grid(row=1, column=2, columnspan=2, sticky="nsew")
 
