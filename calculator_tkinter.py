@@ -3,9 +3,9 @@ from PIL import ImageTk, Image
 
 root = Tk()
 root.title('Calculator')
-root.iconbitmap('pics\icon.ico')
+root.iconbitmap(r'pics\icon.ico')
 
-# иконки кнопок
+# button icons
 img_equal = ImageTk.PhotoImage(Image.open('pics\equal.png'))
 img_c = ImageTk.PhotoImage(Image.open('pics\c.png'))
 img_zero = ImageTk.PhotoImage(Image.open('pics\zero.png'))
