@@ -32,8 +32,8 @@ img_2root_x = ImageTk.PhotoImage(Image.open(r'pics\2root_x.png'))
 # enter field
 root.configure(background='black')
 
-e = Entry(root, width=13, bg='black', fg='white', justify='right', font="Arial 40 bold",
-          borderwidth=0, highlightthickness=0)
+e = Entry(root, width=13, bg='black', fg='white', justify='right', \
+		  font="Arial 40 bold", borderwidth=0, highlightthickness=0)
 e.pack(pady=50)
 e.grid(row=0, column=0, columnspan=4, padx=10, pady=20)
 root.minsize(300, 400)
@@ -50,14 +50,17 @@ root.grid_rowconfigure(4, weight=1)
 root.grid_rowconfigure(5, weight=1)
 root.grid_rowconfigure(6, weight=1)
 
+
 # buttons functions
 def button_click(num):
     current = e.get()
     e.delete(0, END)
     e.insert(0, str(current) + str(num))
 
+
 def button_clear():
     e.delete(0, END)
+
 
 def operation_buttons(func_button):
     def wrapper():
@@ -68,25 +71,30 @@ def operation_buttons(func_button):
         e.delete(0, END)
     return wrapper
 
+
 @operation_buttons
 def button_add():
     global math
     math = 'addition'
+
 
 @operation_buttons
 def button_dvd():
     global math
     math = 'dividing'
 
+
 @operation_buttons
 def button_mltp():
     global math
     math = 'multiplication'
 
+
 @operation_buttons
 def button_min():
     global math
     math = 'substraction'
+
 
 def button_equal():
     second_number = e.get()
@@ -115,6 +123,7 @@ def button_equal():
         else:
             e.insert(0, int(f_num) * int(second_number))
 
+
 def plus_min():
     current = e.get()
     e.delete(0, END)
@@ -122,6 +131,7 @@ def plus_min():
         e.insert(0, str(current)[1:])
     else:
         e.insert(0, str('-') + str(current))
+
 
 def one_dvd_x():
     current = e.get()
@@ -132,6 +142,7 @@ def one_dvd_x():
     else:
         e.insert(0, result)
 
+
 def x_2():
     current = e.get()
     e.delete(0, END)
@@ -141,6 +152,7 @@ def x_2():
     else:
         e.insert(0, result)
 
+
 def x_3():
     current = e.get()
     e.delete(0, END)
@@ -149,6 +161,7 @@ def x_3():
         e.insert(0, int(result))
     else:
         e.insert(0, result)
+
 
 def sq_root():
     current = e.get()
@@ -162,6 +175,7 @@ def sq_root():
         else:
             e.insert(0, result)
 
+
 def key(event=None):
     button_click(event.char)
     try:
@@ -174,30 +188,36 @@ def key(event=None):
     except NameError:
         pass
 
+
 def backspace(event=None):
     btn_C.config(bg='white')
     root.after(100, lambda: btn_C.config(bg='salmon'))
     button_clear()
+
 
 def equal(event=None):
     btn_E.config(bg='white')
     root.after(100, lambda: btn_E.config(bg='khaki'))
     button_equal()
 
+
 def addition(event=None):
     btn_add.config(bg='white')
     root.after(100, lambda: btn_add.config(bg='gray'))
     button_add()
+
 
 def minus(event=None):
     btn_min.config(bg='white')
     root.after(100, lambda: btn_min.config(bg='gray'))
     button_min()
 
+
 def divide(event=None):
     btn_dvd.config(bg='white')
     root.after(100, lambda: btn_dvd.config(bg='gray'))
     button_dvd()
+
 
 def multiple(event=None):
     btn_mltp.config(bg='white')
