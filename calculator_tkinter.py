@@ -6,24 +6,24 @@ root.title('Calculator')
 root.iconbitmap(r'pics\icon.ico')
 
 # button icons
-img_equal = ImageTk.PhotoImage(Image.open('pics\equal.png'))
-img_c = ImageTk.PhotoImage(Image.open('pics\c.png'))
-img_zero = ImageTk.PhotoImage(Image.open('pics\zero.png'))
-img_dvd = ImageTk.PhotoImage(Image.open('pics\dvd.png'))
-img_mltp = ImageTk.PhotoImage(Image.open('pics\mltp.png'))
+img_equal = ImageTk.PhotoImage(Image.open(r'pics\equal.png'))
+img_c = ImageTk.PhotoImage(Image.open(r'pics\c.png'))
+img_zero = ImageTk.PhotoImage(Image.open(r'pics\zero.png'))
+img_dvd = ImageTk.PhotoImage(Image.open(r'pics\dvd.png'))
+img_mltp = ImageTk.PhotoImage(Image.open(r'pics\mltp.png'))
 img_add = ImageTk.PhotoImage(Image.open(r'pics\add.png'))
-img_min = ImageTk.PhotoImage(Image.open('pics\min.png'))
-img_one = ImageTk.PhotoImage(Image.open('pics\one.png'))
+img_min = ImageTk.PhotoImage(Image.open(r'pics\min.png'))
+img_one = ImageTk.PhotoImage(Image.open(r'pics\one.png'))
 img_two = ImageTk.PhotoImage(Image.open(r'pics\two.png'))
 img_three = ImageTk.PhotoImage(Image.open(r'pics\three.png'))
 img_four = ImageTk.PhotoImage(Image.open(r'pics\four.png'))
 img_five = ImageTk.PhotoImage(Image.open(r'pics\five.png'))
-img_six = ImageTk.PhotoImage(Image.open('pics\six.png'))
-img_seven = ImageTk.PhotoImage(Image.open('pics\seven.png'))
-img_eight = ImageTk.PhotoImage(Image.open('pics\eight.png'))
+img_six = ImageTk.PhotoImage(Image.open(r'pics\six.png'))
+img_seven = ImageTk.PhotoImage(Image.open(r'pics\seven.png'))
+img_eight = ImageTk.PhotoImage(Image.open(r'pics\eight.png'))
 img_nine = ImageTk.PhotoImage(Image.open(r'pics\nine.png'))
-img_dot = ImageTk.PhotoImage(Image.open('pics\dot.png'))
-img_plus_minus = ImageTk.PhotoImage(Image.open('pics\plus_minus.png'))
+img_dot = ImageTk.PhotoImage(Image.open(r'pics\dot.png'))
+img_plus_minus = ImageTk.PhotoImage(Image.open(r'pics\plus_minus.png'))
 img_1_x = ImageTk.PhotoImage(Image.open(r'pics\1_x.png'))
 img_x_2 = ImageTk.PhotoImage(Image.open(r'pics\x_2.png'))
 img_x_3 = ImageTk.PhotoImage(Image.open(r'pics\x_3.png'))
@@ -236,26 +236,41 @@ root.bind("<Return>", equal)
 # buttons
 btn_1 = Button(root, image=img_one, bg='black', command=lambda: button_click(1))
 btn_2 = Button(root, image=img_two, bg='black', command=lambda: button_click(2))
-btn_3 = Button(root, image=img_three, bg='black', command=lambda: button_click(3))
-btn_4 = Button(root, image=img_four, bg='black', command=lambda: button_click(4))
-btn_5 = Button(root, image=img_five, bg='black', command=lambda: button_click(5))
+btn_3 = Button(root, image=img_three, bg='black', \
+												command=lambda: button_click(3))
+btn_4 = Button(root, image=img_four, bg='black', \
+												command=lambda: button_click(4))
+btn_5 = Button(root, image=img_five, bg='black', \
+												command=lambda: button_click(5))
 btn_6 = Button(root, image=img_six, bg='black', command=lambda: button_click(6))
-btn_7 = Button(root, image=img_seven, bg='black', command=lambda: button_click(7))
-btn_8 = Button(root, image=img_eight, bg='black', command=lambda: button_click(8))
-btn_9 = Button(root, image=img_nine, bg='black', command=lambda: button_click(9))
-btn_0 = Button(root, image=img_zero, bg='black', command=lambda: button_click(0))
+btn_7 = Button(root, image=img_seven, bg='black', \
+												command=lambda: button_click(7))
+btn_8 = Button(root, image=img_eight, bg='black', \
+												command=lambda: button_click(8))
+btn_9 = Button(root, image=img_nine, bg='black', \
+												command=lambda: button_click(9))
+btn_0 = Button(root, image=img_zero, bg='black', \
+												command=lambda: button_click(0))
 btn_C = Button(root, image=img_c, bg='salmon', command=lambda: button_clear())
-btn_E = Button(root, image=img_equal, bg='khaki', command=lambda: button_equal())
+btn_E = Button(root, image=img_equal, bg='khaki', \
+												command=lambda: button_equal())
 btn_dvd = Button(root, image=img_dvd, bg='gray', command=lambda: button_dvd())
-btn_mltp = Button(root, image=img_mltp, bg='gray', command=lambda: button_mltp())
+btn_mltp = Button(root, image=img_mltp, bg='gray', \
+												command=lambda: button_mltp())
 btn_add = Button(root, image=img_add, bg='gray', command=lambda: button_add())
 btn_min = Button(root, image=img_min, bg='gray', command=lambda: button_min())
-btn_dot = Button(root, image=img_dot, bg='black', command=lambda: button_click('.'))
-btn_plus_min = Button(root, image=img_plus_minus, bg='black', command=lambda: plus_min())
-btn_one_dvd_x = Button(root, image=img_1_x, bg='cornflowerblue', command=lambda: one_dvd_x())
-btn_sq_root = Button(root, image=img_2root_x, bg='cornflowerblue', command=lambda: sq_root())
-btn_x_2 = Button(root, image=img_x_2, bg='cornflowerblue', command=lambda: x_2())
-btn_x_3 = Button(root, image=img_x_3, bg='cornflowerblue', command=lambda: x_3())
+btn_dot = Button(root, image=img_dot, bg='black', \
+											command=lambda: button_click('.'))
+btn_plus_min = Button(root, image=img_plus_minus, bg='black', \
+													command=lambda: plus_min())
+btn_one_dvd_x = Button(root, image=img_1_x, bg='cornflowerblue', \
+													command=lambda: one_dvd_x())
+btn_sq_root = Button(root, image=img_2root_x, bg='cornflowerblue', \
+													command=lambda: sq_root())
+btn_x_2 = Button(root, image=img_x_2, bg='cornflowerblue', \
+														command=lambda: x_2())
+btn_x_3 = Button(root, image=img_x_3, bg='cornflowerblue', \
+														command=lambda: x_3())
 
 
 # grid location
