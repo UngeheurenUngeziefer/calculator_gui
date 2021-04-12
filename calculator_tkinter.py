@@ -5,6 +5,7 @@ root = Tk()
 root.title('Calculator')
 root.iconbitmap(r'pics\icon.ico')
 
+
 # button icons
 img_equal = ImageTk.PhotoImage(Image.open(r'pics\equal.png'))
 img_c = ImageTk.PhotoImage(Image.open(r'pics\c.png'))
@@ -29,11 +30,12 @@ img_x_2 = ImageTk.PhotoImage(Image.open(r'pics\x_2.png'))
 img_x_3 = ImageTk.PhotoImage(Image.open(r'pics\x_3.png'))
 img_2root_x = ImageTk.PhotoImage(Image.open(r'pics\2root_x.png'))
 
+
 # enter field
 root.configure(background='black')
 
 e = Entry(root, width=13, bg='black', fg='white', justify='right', \
-		  font="Arial 40 bold", borderwidth=0, highlightthickness=0)
+          font="Arial 40 bold", borderwidth=0, highlightthickness=0)
 e.pack(pady=50)
 e.grid(row=0, column=0, columnspan=4, padx=10, pady=20)
 root.minsize(300, 400)
@@ -237,40 +239,40 @@ root.bind("<Return>", equal)
 btn_1 = Button(root, image=img_one, bg='black', command=lambda: button_click(1))
 btn_2 = Button(root, image=img_two, bg='black', command=lambda: button_click(2))
 btn_3 = Button(root, image=img_three, bg='black', \
-												command=lambda: button_click(3))
+                                                command=lambda: button_click(3))
 btn_4 = Button(root, image=img_four, bg='black', \
-												command=lambda: button_click(4))
+                                                command=lambda: button_click(4))
 btn_5 = Button(root, image=img_five, bg='black', \
-												command=lambda: button_click(5))
+                                                command=lambda: button_click(5))
 btn_6 = Button(root, image=img_six, bg='black', command=lambda: button_click(6))
 btn_7 = Button(root, image=img_seven, bg='black', \
-												command=lambda: button_click(7))
+                                                command=lambda: button_click(7))
 btn_8 = Button(root, image=img_eight, bg='black', \
-												command=lambda: button_click(8))
+                                                command=lambda: button_click(8))
 btn_9 = Button(root, image=img_nine, bg='black', \
-												command=lambda: button_click(9))
+                                                command=lambda: button_click(9))
 btn_0 = Button(root, image=img_zero, bg='black', \
-												command=lambda: button_click(0))
+                                                command=lambda: button_click(0))
 btn_C = Button(root, image=img_c, bg='salmon', command=lambda: button_clear())
 btn_E = Button(root, image=img_equal, bg='khaki', \
-												command=lambda: button_equal())
+                                                command=lambda: button_equal())
 btn_dvd = Button(root, image=img_dvd, bg='gray', command=lambda: button_dvd())
 btn_mltp = Button(root, image=img_mltp, bg='gray', \
-												command=lambda: button_mltp())
+                                                command=lambda: button_mltp())
 btn_add = Button(root, image=img_add, bg='gray', command=lambda: button_add())
 btn_min = Button(root, image=img_min, bg='gray', command=lambda: button_min())
 btn_dot = Button(root, image=img_dot, bg='black', \
-											command=lambda: button_click('.'))
+                                            command=lambda: button_click('.'))
 btn_plus_min = Button(root, image=img_plus_minus, bg='black', \
-													command=lambda: plus_min())
+                                                    command=lambda: plus_min())
 btn_one_dvd_x = Button(root, image=img_1_x, bg='cornflowerblue', \
-													command=lambda: one_dvd_x())
+                                                    command=lambda: one_dvd_x())
 btn_sq_root = Button(root, image=img_2root_x, bg='cornflowerblue', \
-													command=lambda: sq_root())
+                                                    command=lambda: sq_root())
 btn_x_2 = Button(root, image=img_x_2, bg='cornflowerblue', \
-														command=lambda: x_2())
+                                                        command=lambda: x_2())
 btn_x_3 = Button(root, image=img_x_3, bg='cornflowerblue', \
-														command=lambda: x_3())
+                                                        command=lambda: x_3())
 
 
 # grid location
